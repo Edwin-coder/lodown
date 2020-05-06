@@ -25,18 +25,32 @@ module.exports.each = each;
 
 
 
+/**
+ * 
+ * Identity : Input any value and identity will return back to you the value 
+ * the same way 
+ * 
+ * @param {any datatype} value : The value that will be returned back untouched 
+ * 
+ * 
+ * @return {any datatype} : return the value input untouched 
+ * */
 
+function identity(value){
+    return value;
+}
 
+module.exports.identity = identity;
 
 
 
 /**
- * typeOf : Takes any value and defines it 
+ * typeOf : Takes any value and defines it as a string.
  *
  * @param {simple datatypes , complex datatypes } value : The value that 
- * will be defined 
+ * will be defined.
  * 
- * @return {string}: returns the type of datatype in a string 
+ * @return {string}: returns the type of datatype in a string.
  * 
  * */
 
@@ -84,9 +98,10 @@ module.exports.typeOf = typeOf;
  * @param {number} num : the number that indicates how many elements from the begining 
  * of the array gets pulled out 
  * 
- *  @return {array} : An Array of first elements pulled out from input array. If
- * number is greater than the length of array and if number is negative it will 
- * return an empty array. If number is not given it will return the first element in an array.
+ *  @return {array} : An Array of first elements pulled out from input array. 
+ * If number is greater than the length of array it will return the whole array.
+ * If number is negative it will return an empty array. 
+ * If number is not given it will return the first element in an array.
  * If array is not an array it will return an empty array.
  * */
 
@@ -121,10 +136,11 @@ module.exports.first = first;
  * @param {number} num : the number that indicates the last amount of elements to 
  * be pulled out from array
  * 
- * @return {array}: Array of last elements pulled out from input array. If number is 
- * not given it will return the last element in array.If array is not an array it 
- * will return an empty array.If number is greater than the length of array and if
- * number is negative it will return an empty array.
+ * @return {array}: Array of last elements pulled out from input array. 
+ * If number is not given it will return the last element in array. 
+ * If array is not an array it will return an empty array.
+ * If number is greater than the length of array it will return the whole array.
+ * If number is negative it will return an empty array.
  * */
 
 function last(arr,num){
@@ -260,7 +276,8 @@ module.exports.unique = unique;
  * @param {array} arr: The array that will be iterated through to pass elements through 
  * given function 
  * 
- *@param {function} func : The function that will act on all elements 
+ *@param {function} func : The function that will act on each element, each index,
+ * and the entire collection.
  * 
  * @return {array} : A new array of all passed values 
  **/
@@ -298,7 +315,8 @@ module.exports.filter = filter;
  * @param {array} arr : the array that will be iterated over to test if values are 
  * true or false based on the return value from given function call;
  * 
- * @param {function} func: the function that will act on all elements in a given array
+ * @param {function} func: The function that will act on each element, each index,
+ * and the entire collection.
  * 
  * @return {array} : An array of all falsy elements or false values
  * 
@@ -334,7 +352,8 @@ module.exports.reject = reject;
  * false values given back from a given action function.
  * 
  * @param {array} arr : an array that will be iterated over to pass through given function 
- * @param {function} func :the function that will act on all elements 
+ * @param {function} func : The function that will act on each element, each index,
+ * and the entire collection.
  * 
  * @return {array} : An array of two arrays inside of it. One false and true for which 
  * the action function acted on.
@@ -409,10 +428,11 @@ module.exports.map = map;
 /**
  * pluck : Puts all values in an array that matches the given property
  * 
- * @param { array } arrayOfObjs: the araay with objects inside that will be checked 
- * 
+ * @param { array } arrayOfObjs: the array with objects inside that will be checked 
  * for a match with given property.
  * 
+ * @param {key} prop : This key will be searched for in object.
+ *
  * @return {array} : An array that matched the values of the identical keys.
  * 
  * */
@@ -445,6 +465,8 @@ module.exports.pluck = pluck;
  * @param {function} func : the function that will act on elements or properties
  * 
  * @return {boolean} will return true if all values are true and false if not.
+ * If callback function insn't provided, it will return true if every value in the 
+ * collection is a truthy value. False otherwise.
  * 
  * */
 
@@ -499,7 +521,9 @@ module.exports.every = every;
  * @param {function} func: The function that will act on values 
  * 
  * @return {boolean} : If even one of the values are true in a collection the output will be true , otherwise 
- * false.
+ * false. 
+ * If callback function isn't given, it will return true if even one of the values are true
+ * in the collection , false otherwise.
  * 
  * */
 function some(collect,func){
@@ -547,10 +571,10 @@ module.exports.some = some;
  * 
  * @param {function} func: The function that will act on all elements 
  * 
- * @param {accumulator} seed :  Will act as an accumulator or if not given be the first 
+ * @param {string,number,array or object} seed :  Will act as an accumulator or if not given be the first 
  * position in your array.
  * 
- * @return {seed} : Object, array , empty string depends on the objective of your code.
+ * @return {string,number,array, or object} : Object, array , empty string depends on the objective of your code.
  * */
 
 
