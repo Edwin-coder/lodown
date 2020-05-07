@@ -431,7 +431,7 @@ module.exports.map = map;
  * @param { array } arrayOfObjs: the array with objects inside that will be checked 
  * for a match with given property.
  * 
- * @param {key} prop : This key will be searched for in object.
+ * @param {string} prop : This key(string) will be searched for in object.
  *
  * @return {array} : An array that matched the values of the identical keys.
  * 
